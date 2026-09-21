@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" role="img" aria-label="Placeholder de mascota">
+  <rect width="600" height="700" rx="36" fill="#f2f6f2"/>
+  <g fill="#1f3428">
+    <circle cx="300" cy="330" r="110"/>
+    <path d="M300 430c-88 0-138 58-150 130h300c-12-72-62-130-150-130Z"/>
+    <ellipse cx="226" cy="300" rx="34" ry="48" transform="rotate(-28 226 300)"/>
+    <ellipse cx="374" cy="300" rx="34" ry="48" transform="rotate(28 374 300)"/>
+    <path d="M210 470q40-58 90-58t90 58q-34-30-90-30t-90 30Z"/>
+  </g>
+  <circle cx="268" cy="330" r="10" fill="#f2f6f2"/>
+  <circle cx="332" cy="330" r="10" fill="#f2f6f2"/>
+  <ellipse cx="300" cy="372" rx="34" ry="16" fill="#f2f6f2"/>
+</svg>

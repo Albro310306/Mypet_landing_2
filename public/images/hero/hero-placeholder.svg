@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" role="img" aria-label="Placeholder ilustración de un paseo de mascota">
+  <rect width="800" height="620" rx="48" fill="#f6efe1"/>
+  <g opacity="0.5" fill="#c3d5c7">
+    <ellipse cx="140" cy="120" rx="16" ry="20" transform="rotate(-20 140 120)"/>
+    <ellipse cx="124" cy="86" rx="11" ry="14" transform="rotate(-20 124 86)"/>
+    <ellipse cx="116" cy="52" rx="9" ry="12" transform="rotate(-20 116 52)"/>
+    <ellipse cx="712" cy="500" rx="16" ry="20" transform="rotate(-20 712 500)"/>
+    <ellipse cx="696" cy="466" rx="11" ry="14" transform="rotate(-20 696 466)"/>
+    <ellipse cx="688" cy="432" rx="9" ry="12" transform="rotate(-20 688 432)"/>
+  </g>
+  <circle cx="560" cy="180" r="90" fill="#eadcc4"/>
+  <circle cx="620" cy="470" r="60" fill="#c3d5c7"/>
+  <circle cx="140" cy="420" r="70" fill="#d98c5f" opacity="0.55"/>
+  <g fill="#1f3428">
+    <ellipse cx="360" cy="392" rx="58" ry="30"/>
+    <path d="M302 392v86h116V392Zm-14-6c12-26 46-44 72-44s60 18 72 44l-34 4c-18-22-58-22-76 0Z"/>
+    <ellipse cx="420" cy="340" rx="34" ry="40"/>
+    <path d="M386 330l26-18 26 18-26 60Z"/>
+    <ellipse cx="418" cy="292" rx="10" ry="12"/>
+    <circle cx="384" cy="300" r="5" fill="#f6efe1"/>
+    <circle cx="452" cy="300" r="5" fill="#f6efe1"/>
+    <ellipse cx="418" cy="368" rx="26" ry="22"/>
+    <ellipse cx="520" cy="404" rx="24" ry="16"/>
+    <path d="M544 404h36l-10 44h-26Z"/>
+  </g>
+</svg>
