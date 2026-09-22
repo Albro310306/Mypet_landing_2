@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-fraunces), Georgia, serif;
 
   --color-cream-50: #fbf8f1;
@@ -26,9 +26,42 @@
   --color-terracotta-700: #8f4727;
 
   --color-ink: #20312a;
+
+  /* Carrusel mascotas: duración base */
+  --carousel-duration: 45s;
+
+  /* Animación */
+  --animate-carousel: carousel var(--carousel-duration) linear infinite;
+
+  @keyframes carousel {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  /* Acordeón horizontal de planes */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-cream-50 text-forest-950 font-sans antialiased;
   }
@@ -48,6 +81,32 @@
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-forest-600;
   }
+}
+
+/* ── Acordeón horizontal de planes ── */
+.accordion-panel {
+  flex: 1;
+  transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-panel:hover {
+  flex: 4;
+}
+.accordion-panel .panel-collapsed {
+  display: flex;
+  transition: opacity 0.3s ease;
+}
+.accordion-panel:hover .panel-collapsed {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+.accordion-panel .panel-expanded {
+  display: none;
+  opacity: 0;
+}
+.accordion-panel:hover .panel-expanded {
+  display: flex;
+  animation: fadeIn 0.35s ease 0.15s both;
 }
 
 @media (prefers-reduced-motion: reduce) {

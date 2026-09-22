@@ -1,14 +1,11 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { Intro } from "@/components/sections/Intro";
+import { Servicios } from "@/components/sections/Servicios";
 import { Paseadores } from "@/components/sections/Paseadores";
-import { ComoFunciona } from "@/components/sections/ComoFunciona";
-import { Seguridad } from "@/components/sections/Seguridad";
 import { Mascotas } from "@/components/sections/Mascotas";
-import { TiposPaseo } from "@/components/sections/TiposPaseo";
 import { Resenas } from "@/components/sections/Resenas";
-import { Nosotros } from "@/components/sections/Nosotros";
-import { FAQ } from "@/components/sections/FAQ";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 
 export default function Home() {
@@ -17,14 +14,18 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Intro />
+        
+        {/* Sección de Experiencia/Servicios (bg-cream-50) */}
+        <Servicios />
+        
+        {/* Sección de Confianza/Equipo (bg-cream-100) */}
         <Paseadores />
-        <ComoFunciona />
-        <Seguridad />
+        
+        {/* Clientes y Reseñas */}
         <Mascotas />
-        <TiposPaseo />
         <Resenas />
-        <Nosotros />
-        <FAQ />
+        
         <ContactCTA />
       </main>
       <Footer />

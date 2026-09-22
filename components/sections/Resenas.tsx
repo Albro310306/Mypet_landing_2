@@ -6,32 +6,35 @@ import { buttonOutline } from "@/lib/button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { resenas } from "@/data/resenas";
 
+// Duplicamos varias veces para el loop infinito sin cortes en pantallas grandes
+const duplicatedResenas = [...resenas, ...resenas, ...resenas, ...resenas, ...resenas, ...resenas];
+
 export function Resenas() {
   return (
-    <section id="resenas" className="scroll-mt-20 bg-forest-50 py-20 sm:py-24">
+    <section id="resenas" className="scroll-mt-20 overflow-hidden bg-forest-50 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          eyebrow="Reseñas"
-          title="Lo que dicen las familias"
-          subtitle="Opiniones reales de quienes confían en MyPet para el bienestar de su mascota."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Reseñas"
+            title="Lo que dicen las familias"
+            subtitle="Opiniones reales de quienes confían en MyPet para el bienestar de su mascota."
+          />
+        </Reveal>
+      </div>
 
-        {resenas.length > 0 ? (
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {resenas.map((resena, index) => (
-              <Reveal key={resena.id} delay={(index % 3) * 0.1}>
-                <figure className="flex h-full flex-col rounded-3xl border border-forest-950/5 bg-white p-7">
+      {resenas.length > 0 ? (
+        <div className="mt-14 w-full">
+          <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] pb-4">
+            <div className="flex animate-carousel gap-6 pr-6">
+              {duplicatedResenas.map((resena, index) => (
+                <div
+                  key={`${resena.id}-${index}`}
+                  className="flex w-[320px] shrink-0 flex-col rounded-3xl border border-forest-950/5 bg-white p-7 shadow-sm sm:w-[380px]"
+                >
                   {resena.rating !== undefined && (
-                    <div
-                      className="flex gap-1"
-                      aria-label={`Calificación ${resena.rating} de 5 estrellas`}
-                    >
+                    <div className="flex gap-1" aria-label={`Calificación ${resena.rating} de 5 estrellas`}>
                       {Array.from({ length: resena.rating }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="size-4 fill-amber-400 text-amber-400"
-                          aria-hidden="true"
-                        />
+                        <Star key={i} className="size-4 fill-amber-400 text-amber-400" aria-hidden="true" />
                       ))}
                     </div>
                   )}
@@ -40,44 +43,40 @@ export function Resenas() {
                   </blockquote>
                   <figcaption className="mt-6 flex items-center gap-3">
                     {resena.foto && (
-                      // TODO: reemplazar por la foto real de la persona
-                      <Image
-                        src={resena.foto}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className="size-10 rounded-full object-cover"
-                      />
+                      <div className="relative size-10 shrink-0 overflow-hidden rounded-full">
+                        <Image
+                          src={resena.foto}
+                          alt=""
+                          fill
+                          sizes="40px"
+                          className="object-cover"
+                        />
+                      </div>
                     )}
                     <div>
-                      <p className="text-sm font-semibold text-forest-950">
-                        {resena.nombre}
-                      </p>
+                      <p className="text-sm font-semibold text-forest-950">{resena.nombre}</p>
                       {resena.mascota && (
-                        <p className="text-xs text-forest-800/60">
-                          {resena.mascota}
-                        </p>
+                        <p className="text-xs text-forest-800/60">{resena.mascota}</p>
                       )}
                     </div>
                   </figcaption>
-                </figure>
-              </Reveal>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
-        ) : (
+        </div>
+      ) : (
+        <div className="mx-auto mt-14 max-w-xl px-5 sm:px-8">
           <Reveal>
-            <div className="mx-auto mt-14 max-w-xl rounded-3xl border border-dashed border-forest-300 bg-white/60 p-10 text-center">
+            <div className="rounded-3xl border border-dashed border-forest-300 bg-white/60 p-10 text-center">
               <p className="text-lg font-medium text-forest-900">
                 Estamos reuniendo las reseñas de nuestros clientes
               </p>
               <p className="mt-3 text-sm leading-relaxed text-forest-800/75">
-                Escríbenos por WhatsApp y con gusto te contamos sobre la
-                experiencia de otras familias con sus mascotas.
+                Escríbenos por WhatsApp y con gusto te contamos sobre la experiencia de otras familias.
               </p>
               <a
-                href={getWhatsAppUrl(
-                  "Hola MyPet, quiero conocer las experiencias de otras familias con los paseos."
-                )}
+                href={getWhatsAppUrl("Hola MyPet, quiero conocer las experiencias de otras familias con los paseos.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${buttonOutline} mt-6 px-6 py-3`}
@@ -86,8 +85,8 @@ export function Resenas() {
               </a>
             </div>
           </Reveal>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

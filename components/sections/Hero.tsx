@@ -1,91 +1,54 @@
-import Image from "next/image";
-import { ArrowDown, Heart, Leaf, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowDown, MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
-import { buttonPrimary, buttonOutline } from "@/lib/button";
+import { HeroCarousel } from "@/components/ui/HeroCarousel";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-
-const values = [
-  { icon: Heart, label: "Bienestar animal" },
-  { icon: ShieldCheck, label: "Confianza" },
-  { icon: Leaf, label: "Transparencia" },
-];
 
 export function Hero() {
   return (
-    <section className="overflow-hidden">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <Reveal>
-            <p className="inline-flex items-center gap-2 rounded-full border border-forest-200 bg-forest-50 px-4 py-1.5 text-sm font-medium text-forest-700">
-              <Heart className="size-4" aria-hidden="true" />
-              Paseadores de mascotas con bienestar animal
-            </p>
-          </Reveal>
+    <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-cream-50">
+        
+        {/* Fondo Carrusel Interactivo */}
+        <div className="absolute inset-0 z-0">
+          <HeroCarousel />
+        </div>
 
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight text-forest-950 sm:text-5xl lg:text-6xl">
-              Cuando no puedes estar,{" "}
-              <span className="text-forest-600">ellos lo disfrutan</span>
+        {/* Overlay Claro pero con un toque sutil de sombra para dar más contraste */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-cream-50/95 via-cream-50/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-forest-950/10 pointer-events-none" />
+
+        {/* Contenido de texto */}
+        <div className="relative z-20 flex w-full max-w-3xl flex-col justify-center px-8 py-20 sm:px-16 lg:py-0">
+          <Reveal>
+            <h1 className="font-display text-5xl font-medium leading-[1.1] tracking-tight text-forest-950 sm:text-6xl lg:text-[5rem]">
+              Tú trabajas <br /> tranquilo.
+            </h1>
+            <h1 className="mt-2 font-display text-5xl font-medium italic leading-[1.1] tracking-tight text-forest-600 sm:text-6xl lg:text-[5rem]">
+              Ellos disfrutan.
             </h1>
           </Reveal>
-
-          <Reveal delay={0.16}>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-forest-800/80">
-              MyPet te conecta con paseadores de confianza que cuidan a tu
-              mascota como parte de la familia. Cuéntanos qué necesitas y te
-              presentamos a la persona ideal.
+          
+          <Reveal delay={0.1}>
+            <p className="mt-6 max-w-lg text-lg font-light leading-relaxed text-forest-800/80 sm:text-xl">
+              Paseadores en los que puedes confiar para cuando no puedes estar. Diversión, seguridad y bienestar animal en cada paso.
             </p>
           </Reveal>
 
-          <Reveal delay={0.24}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={getWhatsAppUrl(
-                  "Hola MyPet, quiero conocer los paseadores disponibles para mi mascota."
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${buttonPrimary} px-7 py-3.5`}
-              >
-                <MessageCircle className="size-5" aria-hidden="true" />
-                Hablar por WhatsApp
-              </a>
-              <a
-                href="#paseadores"
-                className={`${buttonOutline} px-7 py-3.5`}
-              >
-                Conocer a los paseadores
-                <ArrowDown className="size-4" aria-hidden="true" />
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.32}>
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
-              {values.map(({ icon: Icon, label }) => (
-                <li
-                  key={label}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-forest-800"
-                >
-                  <Icon className="size-4 text-terracotta-500" aria-hidden="true" />
-                  {label}
-                </li>
-              ))}
-            </ul>
+          <Reveal delay={0.2} className="mt-10">
+            <a
+              href={getWhatsAppUrl(
+                "Hola MyPet, quiero conocer a los paseadores."
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-forest-600 px-8 text-base font-semibold text-white shadow-lg shadow-forest-900/10 transition-all duration-300 hover:scale-105 hover:bg-forest-700 active:scale-95"
+            >
+              <MessageCircle className="size-5" aria-hidden="true" />
+              Escríbenos por WhatsApp
+            </a>
           </Reveal>
         </div>
 
-        <Reveal delay={0.2} className="relative">
-          <Image
-            src="/images/hero/hero-placeholder.svg"
-            alt="Ilustración de una mascota paseando con MyPet"
-            width={800}
-            height={620}
-            priority
-            className="h-auto w-full rounded-3xl"
-          />
-        </Reveal>
-      </div>
+
     </section>
   );
 }

@@ -6,34 +6,34 @@ export const paseadores: Paseador[] = [
   {
     id: "placeholder-1",
     slug: "nombre-del-paseador",
-    nombre: "Nombre del paseador", // TODO: dato real
-    foto: "/images/paseadores/paseador-1.svg", // TODO: foto real (webp preferido)
-    zona: "Zona", // TODO: dato real
+    nombre: "Ana Ramírez", 
+    foto: "/images/paseadores/paseador_1.jpg", 
+    zona: "San Isidro, Miraflores", 
     descripcion:
-      "Descripción breve y real del paseador, proporcionada por MyPet.", // TODO: dato real
-    verificado: true, // TODO: solo si MyPet lo verifica
-    experiencia: 1, // TODO: dato real
-    rating: 5, // TODO: solo si existe rating real
-    especialidades: ["Especialidad 1", "Especialidad 2"], // TODO: dato real
+      "Amante de los animales con más de 3 años de experiencia paseando perros de todas las razas.", 
+    verificado: true, 
+    experiencia: 3, 
+    rating: 5, 
+    especialidades: ["Cachorros", "Perros pequeños"], 
   },
   {
     id: "placeholder-2",
     slug: "nombre-del-paseador-2",
-    nombre: "Nombre del paseador 2", // TODO: dato real
-    foto: "/images/paseadores/paseador-2.svg", // TODO: foto real (webp preferido)
-    zona: "Zona", // TODO: dato real
+    nombre: "Carlos Gómez", 
+    foto: "/images/paseadores/paseador_2.jpg", 
+    zona: "Surco, San Borja", 
     descripcion:
-      "Descripción breve y real del paseador, proporcionada por MyPet.", // TODO: dato real
-    especialidades: ["Especialidad 1"], // TODO: dato real
+      "Especialista en perros grandes y rutinas deportivas para mascotas con mucha energía.", 
+    especialidades: ["Deportivo", "Perros grandes"], 
   },
   {
     id: "placeholder-3",
     slug: "nombre-del-paseador-3",
-    nombre: "Nombre del paseador 3", // TODO: dato real
-    foto: "/images/paseadores/paseador-3.svg", // TODO: foto real (webp preferido)
-    zona: "Zona", // TODO: dato real
+    nombre: "Lucía Fernández", 
+    foto: "/images/paseadores/paseador_1.jpg", 
+    zona: "Barranco, Chorrillos", 
     descripcion:
-      "Descripción breve y real del paseador, proporcionada por MyPet.", // TODO: dato real
-    especialidades: ["Especialidad 1", "Especialidad 2", "Especialidad 3"], // TODO: dato real
+      "Paciencia y amor para los más viejitos. Conozco los cuidados especiales que necesitan.", 
+    especialidades: ["Adulto mayor", "Cuidados especiales"], 
   },
 ];

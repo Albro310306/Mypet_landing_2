@@ -1,62 +1,70 @@
+"use client";
+
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { mascotas } from "@/data/mascotas";
 
-const aspectRatios = [
-  "aspect-[3/4]",
-  "aspect-square",
-  "aspect-[4/5]",
-  "aspect-[4/5]",
-  "aspect-square",
-  "aspect-[3/4]",
-];
+// Duplicamos varias veces para garantizar que llene pantallas grandes sin saltos
+const duplicated = [...mascotas, ...mascotas, ...mascotas, ...mascotas, ...mascotas, ...mascotas];
 
 export function Mascotas() {
   return (
-    <section id="mascotas" className="scroll-mt-20 bg-cream-100 py-20 sm:py-24">
+    <section id="mascotas" className="scroll-mt-20 overflow-hidden bg-cream-100 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          eyebrow="Nuestras mascotas"
-          title="Ellos son parte de la familia"
-          subtitle="Cada paseo es una oportunidad para que disfruten, se despejen y vuelvan felices a casa."
-        />
+        <Reveal>
+          <p className="text-center text-sm font-semibold uppercase tracking-widest text-terracotta-600">
+            Nuestros clientes
+          </p>
+          <h2 className="mt-3 text-center font-display text-3xl font-semibold tracking-tight text-forest-950 sm:text-4xl">
+            Ellos ya confían en MyPet
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-center leading-relaxed text-forest-800/70">
+            Cada paseo es una oportunidad para que disfruten, se despejen y vuelvan felices a casa.
+          </p>
+        </Reveal>
+      </div>
 
-        {mascotas.length > 0 ? (
-          <div className="mt-14 columns-2 gap-4 md:columns-3 md:gap-5">
-            {mascotas.map((mascota, index) => (
-              <Reveal key={mascota.id} delay={(index % 3) * 0.08}>
+      {mascotas.length > 0 ? (
+        <div className="mt-12 w-full">
+          {/* Carrusel auto-scroll */}
+          <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex animate-carousel gap-4 pr-4">
+              {duplicated.map((mascota, index) => (
                 <figure
-                  className={`group relative mb-4 break-inside-avoid overflow-hidden rounded-3xl md:mb-5 ${aspectRatios[index % aspectRatios.length]}`}
+                  key={`${mascota.id}-${index}`}
+                  className="group relative size-44 shrink-0 overflow-hidden rounded-2xl shadow-md sm:size-52"
                 >
                   <Image
                     src={mascota.foto}
                     alt={
-                      mascota.nombre ??
-                      `Mascota paseada por MyPet ${mascota.id}`
+                      mascota.nombre
+                        ? `${mascota.nombre} — cliente MyPet`
+                        : `Mascota cliente de MyPet`
                     }
                     fill
-                    sizes="(min-width: 768px) 33vw, 50vw"
-                    className="object-cover transition duration-500 group-hover:scale-105"
+                    sizes="208px"
+                    className="object-cover transition duration-500 group-hover:scale-110"
                   />
                   {mascota.nombre && (
-                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-950/70 to-transparent p-4 pt-10 text-sm font-medium text-cream-50">
+                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-950/70 to-transparent p-3 pt-8 text-xs font-medium text-cream-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       {mascota.nombre}
                     </figcaption>
                   )}
                 </figure>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
-        ) : (
+        </div>
+      ) : (
+        <div className="mx-auto mt-12 max-w-6xl px-5 sm:px-8">
           <Reveal>
-            <p className="mt-14 rounded-3xl border border-dashed border-forest-300 bg-white/60 p-10 text-center text-forest-800">
+            <p className="rounded-3xl border border-dashed border-forest-300 bg-white/60 p-10 text-center text-forest-800">
               Pronto compartiremos aquí a las mascotas que han disfrutado los
               paseos con MyPet.
             </p>
           </Reveal>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

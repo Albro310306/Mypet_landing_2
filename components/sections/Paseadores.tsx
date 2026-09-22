@@ -5,10 +5,10 @@ import { paseadores } from "@/data/paseadores";
 
 export function Paseadores() {
   return (
-    <section id="paseadores" className="scroll-mt-20 py-20 sm:py-24">
+    <section id="paseadores" className="scroll-mt-20 bg-forest-50 pt-20 pb-10 sm:pt-24 sm:pb-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Nuestro equipo"
+          eyebrow="Nuestros paseadores"
           title="Paseadores de confianza para tu mascota"
           subtitle="Personas que conocen a los animales, los tratan con respeto y disfrutan cada paseo tanto como tu mascota."
         />
@@ -24,7 +24,7 @@ export function Paseadores() {
         ) : (
           <Reveal>
             <p className="mt-14 rounded-3xl border border-dashed border-forest-300 bg-forest-50 p-10 text-center text-forest-800">
-              Próximamente te presentaremos a nuestro equipo de paseadores.
+              Próximamente te presentaremos a nuestros paseadores.
             </p>
           </Reveal>
         )}
