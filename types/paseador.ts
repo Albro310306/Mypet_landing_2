@@ -9,4 +9,6 @@ export interface Paseador {
   experiencia?: number;
   rating?: number;
   especialidades?: string[];
+  paseosCompletados?: number;
+  resenas?: number;
 }

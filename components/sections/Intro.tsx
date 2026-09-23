@@ -23,7 +23,7 @@ const features = [
 
 export function Intro() {
   return (
-    <section className="relative overflow-hidden bg-cream-50 py-20 sm:py-28">
+    <section id="quienes-somos" className="scroll-mt-20 relative overflow-hidden bg-cream-50 py-20 sm:py-28">
       {/* Decorative wave */}
       <div
         aria-hidden="true"

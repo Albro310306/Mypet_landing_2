@@ -148,7 +148,7 @@ export function Servicios() {
                 Un plan para cada mascota
               </h2>
               <p className="mt-4 max-w-sm leading-relaxed text-forest-800/80">
-                Evaluamos la edad, raza y nivel de energía para recomendarte la rutina ideal. Pasa el cursor sobre cada plan.
+                Evaluamos la edad, raza y nivel de energía para recomendarte la rutina ideal.
               </p>
             </div>
 
@@ -211,7 +211,8 @@ export function Servicios() {
 
             {/* Hint */}
             <p className="mt-3 text-center text-xs text-forest-800/40">
-              Pasa el cursor sobre cada panel para ver los detalles
+              <span className="hidden sm:inline">Pasa el cursor sobre cada plan para ver los detalles</span>
+              <span className="inline sm:hidden">Toca un plan para ver los detalles</span>
             </p>
           </Reveal>
 

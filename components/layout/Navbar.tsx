@@ -8,6 +8,7 @@ import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const links = [
   { href: "#", label: "Inicio" },
+  { href: "#quienes-somos", label: "Quiénes Somos" },
   { href: "#servicios", label: "Servicios" },
   { href: "#paseadores", label: "El Equipo" },
   { href: "#mascotas", label: "Mascotas" },
@@ -17,18 +18,54 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    // Check initial state
     handleScroll();
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const detectSection = () => {
+      const NAVBAR_HEIGHT = 80; // px que ocupa el navbar fijo
+      const scrollY = window.scrollY;
+
+      // Si estamos al tope, Inicio está activo
+      if (scrollY < NAVBAR_HEIGHT) {
+        setActiveSection("#");
+        return;
+      }
+
+      // Recorremos los links con sección y buscamos cuál es la última
+      // cuyo `top` ya cruzó el tope del viewport (descontando el navbar)
+      let found = "";
+      for (const link of links) {
+        if (link.href === "#") continue;
+        const el = document.getElementById(link.href.substring(1));
+        if (!el) continue;
+        // top relativo al viewport
+        const top = el.getBoundingClientRect().top;
+        // Si el borde superior de la sección ya subió por encima
+        // del punto de referencia (navbar + 20px de margen), la contamos
+        if (top - NAVBAR_HEIGHT - 20 <= 0) {
+          found = link.href;
+        }
+      }
+
+      setActiveSection(found || "#");
+    };
+
+    window.addEventListener("scroll", detectSection, { passive: true });
+    detectSection(); // check inicial
+
+    return () => window.removeEventListener("scroll", detectSection);
+  }, []);
+
 
   return (
     <div className={`fixed inset-x-0 z-50 flex justify-center transition-all duration-500 ${isScrolled ? "top-4 px-4" : "top-0 px-0"}`}>
@@ -43,20 +80,30 @@ export function Navbar() {
           <Logo variant="dark" />
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Principal">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`relative text-[11px] font-bold uppercase tracking-[0.15em] transition-colors group ${
-                  isScrolled || open
-                    ? "text-forest-900 hover:text-forest-600"
-                    : "text-forest-800 hover:text-forest-950"
-                }`}
-              >
-                {link.label}
-                <span className={`absolute -bottom-1 left-0 h-[2px] w-0 transition-all duration-300 group-hover:w-full bg-forest-600`} />
-              </a>
-            ))}
+            {links.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`relative text-[11px] font-bold uppercase tracking-[0.15em] transition-colors group ${
+                    isScrolled || open
+                      ? isActive
+                        ? "text-forest-600"
+                        : "text-forest-900 hover:text-forest-600"
+                      : isActive
+                        ? "text-forest-950"
+                        : "text-forest-800 hover:text-forest-950"
+                  }`}
+                >
+                  {link.label}
+                  {/* Animación del underline activa siempre si es la sección actual, o al hacer hover */}
+                  <span className={`absolute -bottom-1 left-0 h-[2px] transition-all duration-300 bg-forest-600 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`} />
+                </a>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-4">

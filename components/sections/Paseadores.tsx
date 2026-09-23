@@ -8,9 +8,9 @@ export function Paseadores() {
     <section id="paseadores" className="scroll-mt-20 bg-forest-50 pt-20 pb-10 sm:pt-24 sm:pb-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Nuestros paseadores"
-          title="Paseadores de confianza para tu mascota"
-          subtitle="Personas que conocen a los animales, los tratan con respeto y disfrutan cada paseo tanto como tu mascota."
+          eyebrow="Nuestro Equipo"
+          title="Paseadores Destacados"
+          subtitle="Profesionales verificados, capacitados y evaluados constantemente por los dueños para brindarle la máxima seguridad, amor y diversión a tu mascota."
         />
 
         {paseadores.length > 0 ? (
