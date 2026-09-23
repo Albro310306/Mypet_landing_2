@@ -1,4 +1,4 @@
-import { ArrowDown, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { HeroCarousel } from "@/components/ui/HeroCarousel";
 import { getWhatsAppUrl } from "@/lib/whatsapp";

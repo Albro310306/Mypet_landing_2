@@ -3,7 +3,6 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Logo } from "@/components/ui/Logo";
-import { buttonPrimary } from "@/lib/button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const links = [

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Placeholder avatar de paseador">
-  <rect width="400" height="400" rx="32" fill="#f6efe1"/>
-  <ellipse cx="200" cy="160" rx="96" ry="104" fill="#c3d5c7"/>
-  <circle cx="200" cy="160" r="34" fill="#f6efe1" opacity="0.9"/>
-  <circle cx="182" cy="154" r="4" fill="#1f3428"/>
-  <circle cx="218" cy="154" r="4" fill="#1f3428"/>
-  <path d="M186 184c10 10 24 10 34 0" stroke="#1f3428" stroke-width="6" stroke-linecap="round" fill="none"/>
-  <path d="M96 400c10-88 52-122 104-122s94 34 104 122Z" fill="#304e3b"/>
-</svg>

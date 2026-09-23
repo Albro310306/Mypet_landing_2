@@ -22,18 +22,15 @@ const images = [
 export function HeroCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
-  const [fading, setFading] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = (next: number) => {
     const normalized = ((next % images.length) + images.length) % images.length;
     if (normalized === activeIndex) return;
     setPrevIndex(activeIndex);
-    setFading(true);
     setTimeout(() => {
       setActiveIndex(normalized);
       setPrevIndex(null);
-      setFading(false);
     }, 700);
   };
 
@@ -43,10 +40,8 @@ export function HeroCarousel() {
       setActiveIndex((prev) => {
         const next = (prev + 1) % images.length;
         setPrevIndex(prev);
-        setFading(true);
         setTimeout(() => {
           setPrevIndex(null);
-          setFading(false);
         }, 700);
         return next;
       });
@@ -58,7 +53,6 @@ export function HeroCarousel() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlePrev = () => {
