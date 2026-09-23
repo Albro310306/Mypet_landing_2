@@ -27,10 +27,10 @@ export function Intro() {
       {/* Decorative wave */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-1 left-0 right-0 h-12 overflow-hidden"
+        className="pointer-events-none absolute -top-1 left-0 right-0 h-12 overflow-hidden text-cream-100"
       >
         <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="h-full w-full">
-          <path d="M0 48 C360 0 1080 0 1440 48 L1440 0 L0 0 Z" fill="#f6efe1" />
+          <path d="M0 48 C360 0 1080 0 1440 48 L1440 0 L0 0 Z" fill="currentColor" />
         </svg>
       </div>
 
@@ -102,7 +102,7 @@ export function Intro() {
           <div className="flex w-full flex-col gap-5">
             {features.map((f, i) => (
               <Reveal key={f.title} delay={0.15 + i * 0.12}>
-                <div className="group rounded-2xl border border-forest-100 bg-white p-7 shadow-sm shadow-forest-900/4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-forest-900/8">
+                <div className="group rounded-2xl border border-forest-100 bg-white p-7 shadow-sm shadow-forest-900/4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-forest-900/8 dark:bg-forest-50 dark:shadow-none">
                   <div className="flex size-12 items-center justify-center rounded-xl bg-forest-50 text-forest-700 transition-colors duration-300 group-hover:bg-forest-100">
                     <f.icon className="size-5" aria-hidden="true" />
                   </div>
@@ -118,13 +118,13 @@ export function Intro() {
 
             {/* Firma / quote card */}
             <Reveal delay={0.4}>
-              <div className="rounded-2xl border border-terracotta-200 bg-terracotta-50 px-7 py-6 shadow-sm">
-                <p className="font-display text-base italic leading-snug text-terracotta-900">
+              <div className="rounded-2xl border border-terracotta-500/25 bg-terracotta-500/10 px-7 py-6 shadow-sm">
+                <p className="font-display text-base italic leading-snug text-terracotta-500">
                   &ldquo;Su bienestar es nuestra única prioridad.&rdquo;
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <div className="h-px w-8 bg-terracotta-500/50" />
-                  <p className="text-sm font-semibold text-terracotta-700">
+                  <p className="text-sm font-semibold text-terracotta-600">
                     El Equipo de MyPet
                   </p>
                 </div>

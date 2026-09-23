@@ -32,7 +32,7 @@ export function ScrollToTop() {
       type="button"
       onClick={scrollToTop}
       aria-label="Volver arriba"
-      className={`fixed bottom-6 right-6 z-50 flex size-12 items-center justify-center rounded-full bg-forest-900 text-cream-50 shadow-lg shadow-forest-900/20 transition-all duration-300 hover:-translate-y-1 hover:bg-forest-800 hover:shadow-xl sm:bottom-8 sm:right-8 ${
+      className={`fixed bottom-6 right-6 z-50 flex size-12 items-center justify-center rounded-full bg-forest-900 text-cream-50 shadow-lg shadow-forest-900/20 transition-all duration-300 hover:-translate-y-1 hover:bg-forest-800 hover:shadow-xl sm:bottom-8 sm:right-8 dark:bg-[#16231a] dark:text-forest-300 dark:ring-1 dark:ring-forest-950/10 dark:hover:bg-forest-800 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
       }`}
     >

@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Logo } from "@/components/ui/Logo";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const links = [
@@ -106,14 +107,15 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <a
               href={getWhatsAppUrl("Hola MyPet, quiero conocer los paseadores disponibles.")}
               target="_blank"
               rel="noopener noreferrer"
               className={`hidden items-center justify-center rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all sm:inline-flex ${
                 isScrolled || open
-                  ? "bg-forest-900 text-white hover:bg-forest-800 hover:shadow-lg"
-                  : "bg-forest-600 text-white hover:bg-forest-700 hover:shadow-md shadow-forest-900/10"
+                  ? "bg-forest-900 text-white hover:bg-forest-800 hover:shadow-lg dark:bg-forest-600 dark:text-forest-950 dark:hover:bg-forest-500"
+                  : "bg-forest-600 text-white hover:bg-forest-700 hover:shadow-md shadow-forest-900/10 dark:bg-forest-600 dark:text-forest-950 dark:hover:bg-forest-500"
               }`}
             >
               Contáctanos
@@ -158,7 +160,7 @@ export function Navbar() {
               href={getWhatsAppUrl("Hola MyPet, quiero conocer los paseadores disponibles.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 flex w-full items-center justify-center rounded-2xl bg-forest-900 px-5 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-forest-800"
+              className="mt-4 flex w-full items-center justify-center rounded-2xl bg-forest-900 px-5 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-forest-800 dark:bg-forest-600 dark:text-forest-950 dark:hover:bg-forest-500"
             >
               Contáctanos
             </a>

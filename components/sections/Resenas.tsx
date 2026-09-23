@@ -29,7 +29,7 @@ export function Resenas() {
               {duplicatedResenas.map((resena, index) => (
                 <div
                   key={`${resena.id}-${index}`}
-                  className="flex w-[320px] shrink-0 flex-col rounded-3xl border border-forest-950/5 bg-white p-7 shadow-sm sm:w-[380px]"
+                  className="flex w-[320px] shrink-0 flex-col rounded-3xl border border-forest-950/5 bg-white p-7 shadow-sm sm:w-[380px] dark:bg-forest-100"
                 >
                   {resena.rating !== undefined && (
                     <div className="flex gap-1" aria-label={`Calificación ${resena.rating} de 5 estrellas`}>
@@ -68,7 +68,7 @@ export function Resenas() {
       ) : (
         <div className="mx-auto mt-14 max-w-xl px-5 sm:px-8">
           <Reveal>
-            <div className="rounded-3xl border border-dashed border-forest-300 bg-white/60 p-10 text-center">
+            <div className="rounded-3xl border border-dashed border-forest-300 bg-white/60 p-10 text-center dark:bg-forest-100/60">
               <p className="text-lg font-medium text-forest-900">
                 Estamos reuniendo las reseñas de nuestros clientes
               </p>

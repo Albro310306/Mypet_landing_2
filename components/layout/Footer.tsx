@@ -19,7 +19,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-forest-950 text-cream-100">
+    <footer className="bg-forest-950 text-cream-100 dark:bg-[#0d1711] dark:text-forest-400">
 
 
       {/* ── Cuerpo del footer ── */}
@@ -33,22 +33,22 @@ export function Footer() {
               className="inline-flex items-center gap-2.5"
               aria-label="MyPet — inicio"
             >
-              <span className="grid size-10 place-items-center rounded-2xl bg-forest-800 text-cream-50">
+              <span className="grid size-10 place-items-center rounded-2xl bg-forest-800 text-cream-50 dark:bg-forest-950/10 dark:text-forest-300">
                 <PawPrint className="size-5" aria-hidden="true" />
               </span>
-              <span className="font-display text-2xl font-semibold tracking-tight text-cream-50">
+              <span className="font-display text-2xl font-semibold tracking-tight text-cream-50 dark:text-forest-950">
                 My<span className="text-forest-400">Pet</span>
               </span>
             </Link>
 
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream-200/60">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream-200/60 dark:text-forest-500">
               Paseos para mascotas con confianza, transparencia y amor. Tu mejor amigo en las mejores manos.
             </p>
 
             {/* Trust pills */}
             <ul className="mt-6 flex flex-col gap-2.5">
               {trustItems.map(({ icon: Icon, text }) => (
-                <li key={text} className="flex items-center gap-2.5 text-xs text-cream-200/50">
+                <li key={text} className="flex items-center gap-2.5 text-xs text-cream-200/50 dark:text-forest-500">
                   <Icon className="size-3.5 text-forest-400 shrink-0" />
                   {text}
                 </li>
@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="group flex items-center gap-2 text-sm text-cream-200/60 transition-colors hover:text-cream-50"
+                    className="group flex items-center gap-2 text-sm text-cream-200/60 transition-colors hover:text-cream-50 dark:text-forest-500 dark:hover:text-forest-200"
                   >
                     <span className="h-px w-4 bg-forest-700 transition-all duration-300 group-hover:w-6 group-hover:bg-terracotta-500" />
                     {link.label}
@@ -88,10 +88,10 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm"
               >
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-forest-800 text-forest-300 transition-colors group-hover:bg-terracotta-500 group-hover:text-white">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-forest-800 text-forest-300 transition-colors group-hover:bg-terracotta-500 group-hover:text-white dark:bg-forest-950/10 dark:group-hover:text-cream-50">
                   <MessageCircle className="size-4" />
                 </span>
-                <span className="text-cream-200/60 transition-colors group-hover:text-cream-50">
+                <span className="text-cream-200/60 transition-colors group-hover:text-cream-50 dark:text-forest-500 dark:group-hover:text-forest-200">
                   WhatsApp
                 </span>
               </a>
@@ -102,7 +102,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm"
               >
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-forest-800 text-forest-300 transition-colors group-hover:bg-terracotta-500 group-hover:text-white">
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-forest-800 text-forest-300 transition-colors group-hover:bg-terracotta-500 group-hover:text-white dark:bg-forest-950/10 dark:group-hover:text-cream-50">
                   {/* Instagram SVG (no disponible en lucide-react v1.47) */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ export function Footer() {
                     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                   </svg>
                 </span>
-                <span className="text-cream-200/60 transition-colors group-hover:text-cream-50">
+                <span className="text-cream-200/60 transition-colors group-hover:text-cream-50 dark:text-forest-500 dark:group-hover:text-forest-200">
                   Instagram
                 </span>
               </a>
@@ -130,11 +130,11 @@ export function Footer() {
         </div>
 
         {/* ── Barra inferior ── */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-cream-50/10 pt-6 sm:flex-row">
-          <p className="text-xs text-cream-200/30">
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-cream-50/10 pt-6 sm:flex-row dark:border-forest-950/10">
+          <p className="text-xs text-cream-200/30 dark:text-forest-500/60">
             © {year} MyPet. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-cream-200/30">
+          <p className="text-xs text-cream-200/30 dark:text-forest-500/60">
             Hecho con <Heart className="inline size-3 text-terracotta-500 fill-terracotta-500 mx-0.5" /> para los amantes de las mascotas
           </p>
         </div>

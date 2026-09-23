@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-fraunces), Georgia, serif;
@@ -55,6 +57,41 @@
     from { opacity: 0; transform: translateY(4px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+}
+
+/* ── Modo oscuro ──
+   Re-mapeo de la paleta: las utilidades (bg-cream-50, text-forest-950, ...)
+   referencian estas variables, por lo que el modo oscuro se aplica sin
+   duplicar estilos en cada componente. */
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-cream-50: #0b110e;
+  --color-cream-100: #111a14;
+  --color-cream-200: #1a2620;
+
+  --color-forest-50: #15221a;
+  --color-forest-100: #1d2d23;
+  --color-forest-200: #283b2e;
+  --color-forest-300: #3a5444;
+  --color-forest-400: #6fae82;
+  --color-forest-500: #6c9f7c;
+  --color-forest-600: #7fb992;
+  --color-forest-700: #97c4a9;
+  --color-forest-800: #b3d4c0;
+  --color-forest-900: #cfe3d6;
+  --color-forest-950: #e9f1eb;
+
+  --color-terracotta-400: #e09c6e;
+  --color-terracotta-500: #db8a5a;
+  --color-terracotta-600: #d2764a;
+  --color-terracotta-700: #bb6a44;
+
+  --color-ink: #e9f1eb;
 }
 
 @layer base {

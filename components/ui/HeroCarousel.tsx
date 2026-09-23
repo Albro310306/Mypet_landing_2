@@ -71,7 +71,7 @@ export function HeroCarousel() {
   };
 
   return (
-    <div className="group relative h-full w-full overflow-hidden bg-forest-900">
+    <div className="group relative h-full w-full overflow-hidden bg-forest-900 dark:bg-forest-100">
       {/* Render all images, only active is visible */}
       {images.map((img, idx) => (
         <div

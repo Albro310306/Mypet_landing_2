@@ -11,7 +11,7 @@ export function ContactCTA() {
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-forest-900 px-6 py-16 text-center sm:px-12 sm:py-20">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-forest-900 px-6 py-16 text-center sm:px-12 sm:py-20 dark:bg-forest-100 dark:ring-1 dark:ring-forest-950/10">
             <span
               aria-hidden="true"
               className="pointer-events-none absolute -left-16 -top-16 size-64 rounded-full bg-forest-700/40 blur-2xl"
@@ -22,13 +22,13 @@ export function ContactCTA() {
             />
 
             <div className="relative">
-              <span className="mx-auto grid size-14 place-items-center rounded-2xl bg-cream-50/10 text-forest-200">
+              <span className="mx-auto grid size-14 place-items-center rounded-2xl bg-cream-50/10 text-forest-200 dark:bg-forest-950/10 dark:text-forest-400">
                 <PawPrint className="size-7" aria-hidden="true" />
               </span>
-              <h2 className="mt-6 text-3xl font-semibold tracking-tight text-cream-50 sm:text-4xl">
+              <h2 className="mt-6 text-3xl font-semibold tracking-tight text-cream-50 sm:text-4xl dark:text-forest-950">
                 Tu mascota te está esperando para su paseo
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-cream-200/85">
+              <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-cream-200/85 dark:text-forest-400">
                 Escríbenos por WhatsApp, cuéntanos de tu mascota y te ayudamos a
                 coordinar su próximo paseo.
               </p>

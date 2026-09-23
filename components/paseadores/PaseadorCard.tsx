@@ -29,7 +29,7 @@ export function PaseadorCard({ paseador }: PaseadorCardProps) {
       >
 
         {/* CARA FRONTAL */}
-        <div className="absolute inset-0 overflow-hidden rounded-3xl border border-forest-950/5 bg-white [backface-visibility:hidden]">
+        <div className="absolute inset-0 overflow-hidden rounded-3xl border border-forest-950/5 bg-white dark:bg-forest-50 [backface-visibility:hidden]">
           <div className="relative h-[68%] w-full overflow-hidden">
             <Image
               src={foto}
@@ -39,7 +39,7 @@ export function PaseadorCard({ paseador }: PaseadorCardProps) {
               className={`object-cover transition duration-500 ${isFlipped ? "scale-105" : ""}`}
             />
             {/* Gradiente inferior */}
-            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white dark:from-forest-100 to-transparent" />
           </div>
 
           <div className="px-5 pt-3">

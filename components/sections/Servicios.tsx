@@ -157,7 +157,7 @@ export function Servicios() {
               {planes.map((plan) => (
                 <div
                   key={plan.title}
-                  className="accordion-panel flex w-full cursor-pointer flex-col justify-center overflow-hidden rounded-xl border border-forest-200 bg-white shadow-sm"
+                  className="accordion-panel flex w-full cursor-pointer flex-col justify-center overflow-hidden rounded-xl border border-forest-200 bg-white shadow-sm dark:bg-forest-50"
                 >
                   {/* Label normal (estado colapsado) */}
                   <div className="panel-collapsed flex h-full w-full items-center gap-4 px-6">
@@ -198,7 +198,7 @@ export function Servicios() {
                         href={getWhatsAppUrl(`Hola, me interesa el plan ${plan.title} para mi mascota.`)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex w-full items-center justify-center gap-2 rounded-xl bg-terracotta-500 px-6 py-3 text-sm font-bold text-white shadow-md shadow-terracotta-900/10 transition-all hover:-translate-y-0.5 hover:bg-terracotta-600 hover:shadow-lg sm:w-auto"
+                        className="flex w-full items-center justify-center gap-2 rounded-xl bg-terracotta-500 px-6 py-3 text-sm font-bold text-white shadow-md shadow-terracotta-900/10 transition-all hover:-translate-y-0.5 hover:bg-terracotta-600 hover:shadow-lg sm:w-auto dark:bg-terracotta-600 dark:text-cream-50 dark:hover:bg-terracotta-700"
                       >
                         <MessageCircle className="size-5" aria-hidden="true" />
                         Elegir este plan
